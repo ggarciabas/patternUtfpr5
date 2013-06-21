@@ -12,23 +12,24 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
-package modelo;
+package app;
 
+import modelo.Veiculo;
+import modelo.concreto.Carro;
 import strategy.Estacionamento;
+import strategy.concreto.Tempo;
 
 /**
- * Abstract Class Veiculo
+ * Class Main
  * 
  * @author Giovanna Garcia
  */
-public abstract class Veiculo {
-    protected Estacionamento m_estacionamento;
-    
-    public void cobrarValor () {
-        m_estacionamento.cobrarValor();
-    }
-    
-    public void setEstacionamento (Estacionamento e) {
-        this.m_estacionamento = e;
+public class Main {
+    public static void main(String[] args) {
+        Veiculo v = new Carro();
+        Estacionamento e = new Tempo();
+        
+        v.setEstacionamento(e);
+        v.cobrarValor();
     }
 }
